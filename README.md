@@ -7,7 +7,7 @@ A wrapper for the Quantum Lutron Extensible Application Protocol (LEAP) API
 ```yaml
 dependencies:
   quantum:
-    github: grkek/quantum
+    github: place-technology/quantum
 ```
 
 Add this to your `shard.yml` file
