@@ -39,7 +39,7 @@ module Quantum
       end
 
       def set_scene(id : Int32, scene : Int32)
-        response = request update("/area/#{id}/status", {"AreaStatus" => {"CurrentScene" => level}})
+        response = request update("/area/#{id}/status", {"AreaStatus" => {"CurrentScene" => scene}})
         get_in(response, ["Body", "AreaStatus"])
       end
     end
