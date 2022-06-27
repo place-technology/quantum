@@ -20,7 +20,7 @@ module Quantum
 
       def get_status(id : Int32)
         response = request read("/area/#{id}/status")
-        get_in response, ["Body", "Area"]
+        get_in response, ["Body", "AreaStatus"]
       end
 
       def get_zones(id : Int32)
@@ -31,6 +31,16 @@ module Quantum
       def get_switchlegs(id : Int32)
         response = request read("/area/#{id}/switchleg")
         get_in response, ["Body", "SwitchLegs"]
+      end
+
+      def get_scenes(id : Int32)
+        response = request read("area/#{id}")
+        get_in response, ["Body", "Area", "Scene"]
+      end
+
+      def set_scene(id : Int32, scene : Int32)
+        response = request update("/area/#{id}/status", {"AreaStatus" => {"CurrentScene" => level}})
+        get_in(response, ["Body", "AreaStatus"])
       end
     end
   end
