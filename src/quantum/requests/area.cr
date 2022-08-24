@@ -34,7 +34,7 @@ module Quantum
       end
 
       def get_scenes(id : Int32)
-        response = request read("area/#{id}")
+        response = request read("/area/#{id}")
         get_in response, ["Body", "Area", "Scene"]
       end
 
