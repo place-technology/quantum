@@ -23,6 +23,11 @@ module Quantum
         get_in response, ["Body", "AreaStatus"]
       end
 
+      def get_occupancy(id : Int32)
+        response = request read("/area/#{id}/status")
+        get_in response, ["Body", "OccupancyStatus"]
+      end
+
       def get_zones(id : Int32)
         response = request read("/area/#{id}/zone")
         get_in response, ["Body", "Zones"]
